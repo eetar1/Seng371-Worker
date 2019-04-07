@@ -2,13 +2,15 @@ import requests
 from PIL import Image
 import json
 import base64
+
 def postTest():
    
-    url  = 'http://127.0.0.1:8000/'
+    url  = 'https://seng371worker.herokuapp.com/'
     data = {
         'url':"WWW.prawn.com",
         'intGit':"www.Ethan.com",
-        'outGit':'www.Ross.com'
+        'outGit':'www.Ross.com',
+        'psw':r"""UoSH{&W-J2tA.KYV9c/#!6!MQ+-M/\~[<dhJNQ22>ny}$-Tpj"H%NQ'eq\'fo88[L]n1)5<H5~WO_/j#|t|@5!p[}pp:#Gn8%g.P"""
     }
     req = requests.post(url,cookies=data)
     jos = json.loads(req.text)
