@@ -22,14 +22,12 @@ def workpage_view(request):
         if request.COOKIES["psw"] == os.environ.get('worker_password'):
             by = ""
             out = process([os.getcwd() + "/ccfWorker/ccfWorker/testImage.jpg"])
-          #  with open(os.getcwd() + "/ccfWorker/ccfWorker/fixed.jpg", "rb") as fp:
             arr= io.BytesIO()
             out.save(arr,format=('JPEG'))
             out = arr.getvalue()
             by = base64.b64encode(out)
 
             data = {"path": os.getcwd(), "url": request.COOKIES["url"], "img": str(by)}
-            os.remove(os.getcwd() + "/ccfWorker/ccfWorker/fixed.jpg")
             return HttpResponse(json.dumps(data))
 
     else:
