@@ -1,1 +1,1 @@
-web: gunicorn ccfWorker.wsgi
+web: gunicorn ccfWorker.wsgi --log-file -
