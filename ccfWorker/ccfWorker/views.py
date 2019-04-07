@@ -25,7 +25,7 @@ def workpage_view(request):
                 by = base64.b64encode(fp.read())
 
             data = {"path": os.getcwd(), "url": request.COOKIES["url"], "img": str(by)}
-            os.remove(os.getcwd() + "/ccfWorker/fixed.jpg")
+            os.remove(os.getcwd() + "/ccfWorker/ccfWorker/fixed.jpg")
             return HttpResponse(json.dumps(data))
 
     else:
