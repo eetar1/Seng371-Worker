@@ -17,7 +17,7 @@ def workpage_view(request):
 
     if request.method == 'POST':
         by = ''
-        img = process([os.getcwd()+'/ccfWorker/testImage.jpg'])
+        process([os.getcwd()+'/ccfWorker/testImage.jpg'])
         with open(os.getcwd()+'/ccfWorker/fixed.jpg',"rb") as fp:
             by = base64.b64encode(fp.read())
         
