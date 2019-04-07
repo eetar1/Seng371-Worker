@@ -1,1 +1,1 @@
-web: gunicorn -bind 0.0.0.0:8000 ccfWorker.wsgi 
+web: gunicorn -bind 0.0.0.0:$PORT ccfWorker.wsgi 
