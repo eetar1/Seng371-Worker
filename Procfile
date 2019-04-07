@@ -1,1 +1,1 @@
-web: gunicorn --bind 0.0.0.0:8000 ccfWorker.wsgi --log-file -
+web: gunicorn ccfWorker.wsgi -bind 0.0.0.0:8000 
