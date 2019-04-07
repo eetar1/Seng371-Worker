@@ -3,4 +3,4 @@ psycopg2>=2.7,<3.0
 whitenoise
 gunicorn
 django_heroku
-
+Pillow
