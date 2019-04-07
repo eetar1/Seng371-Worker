@@ -69,7 +69,7 @@ MIDDLEWARE = [
     "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
-ROOT_URLCONF = "ccfWorker.urls"
+ROOT_URLCONF = "urls"
 
 TEMPLATES = [
     {
