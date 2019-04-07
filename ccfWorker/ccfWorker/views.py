@@ -6,7 +6,7 @@ from django.conf import settings
 from django.http import HttpResponse
 from django.shortcuts import render, reverse
 from django.views.decorators.csrf import csrf_exempt
-
+import os
 from .invert import process
 
 
@@ -18,7 +18,7 @@ def workpage_view(request):
     """
 
     if request.method == "POST":
-        if request.COOKIES["psw"] == settings.worker_password:
+        if request.COOKIES["psw"] == os.environ.get('worker_password'):
             by = ""
             process([os.getcwd() + "/ccfWorker/testImage.jpg"])
             with open(os.getcwd() + "/ccfWorker/fixed.jpg", "rb") as fp:
