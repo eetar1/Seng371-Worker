@@ -5,6 +5,9 @@ from .invert import process
 import json
 import os
 import base64
+
+
+
 @csrf_exempt
 def workpage_view(request):
 
@@ -19,7 +22,7 @@ def workpage_view(request):
             by = base64.b64encode(fp.read())
         
         data = {'path':os.getcwd(),'url':request.COOKIES['url'],'img':str(by)}
-        op.remove(os.getcwd()+'/ccfWorker/fixed.jpg')
+        os.remove(os.getcwd()+'/ccfWorker/fixed.jpg')
         return HttpResponse(json.dumps(data))
     else:
         return render(request, "tmp_home.html")
