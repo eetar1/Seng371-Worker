@@ -102,3 +102,17 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# Django
+secret_key.py
+ccf/app/migrations/
+staticfiles/
+
+# Pycharm
+.idea/
+
+# Visual Studio
+.vs/
+
+secret_key.py
+
