@@ -8,7 +8,7 @@ from PIL import Image
 def process(name):
     image = Image.open(str(name[0]))
     out = PIL.ImageOps.invert(image)
-    out.save(os.getcwd()+'/ccfWorker/fixed.jpg')
+    out.save(os.getcwd() + "/ccfWorker/fixed.jpg")
 
 
 def main():
