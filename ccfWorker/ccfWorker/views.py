@@ -24,7 +24,7 @@ def workpage_view(request):
             out = process([os.getcwd() + "/ccfWorker/ccfWorker/testImage.jpg"])
           #  with open(os.getcwd() + "/ccfWorker/ccfWorker/fixed.jpg", "rb") as fp:
             arr= io.BytesIO()
-            out.save(arr,format=('jpg'))
+            out.save(arr,format=('JPEG'))
             out = arr.getvalue()
             by = base64.b64encode(out)
 
