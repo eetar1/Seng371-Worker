@@ -9,6 +9,7 @@ def process(name):
     image = Image.open(str(name[0]))
     out = PIL.ImageOps.invert(image)
     out.save(os.getcwd() + "/ccfWorker/ccfWorker/fixed.jpg")
+    return out
 
 
 def main():

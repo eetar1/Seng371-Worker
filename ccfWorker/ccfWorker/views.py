@@ -8,6 +8,7 @@ from django.shortcuts import render, reverse
 from django.views.decorators.csrf import csrf_exempt
 import os
 from .invert import process
+import io
 
 
 @csrf_exempt
@@ -20,9 +21,12 @@ def workpage_view(request):
     if request.method == "POST":
         if request.COOKIES["psw"] == os.environ.get('worker_password'):
             by = ""
-            process([os.getcwd() + "/ccfWorker/ccfWorker/testImage.jpg"])
-            with open(os.getcwd() + "/ccfWorker/ccfWorker/fixed.jpg", "rb") as fp:
-                by = base64.b64encode(fp.read())
+            out = process([os.getcwd() + "/ccfWorker/ccfWorker/testImage.jpg"])
+          #  with open(os.getcwd() + "/ccfWorker/ccfWorker/fixed.jpg", "rb") as fp:
+            arr= io.BytesIO()
+            out.save(arr,format=('jpg'))
+            out = arr.getvalue()
+            by = base64.b64encode(out)
 
             data = {"path": os.getcwd(), "url": request.COOKIES["url"], "img": str(by)}
             os.remove(os.getcwd() + "/ccfWorker/ccfWorker/fixed.jpg")
