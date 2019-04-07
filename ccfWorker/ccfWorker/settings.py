@@ -30,7 +30,11 @@ except ImportError:
 
         SECRET_KEY = get_random_secret_key()
         keyfile.write(f"SECRET_KEY = '{SECRET_KEY}'")
-
+        
+try:
+    worker_password = os.environ.get("worker_password")
+except:
+    print("could not get password")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
