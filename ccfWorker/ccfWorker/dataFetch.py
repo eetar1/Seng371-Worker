@@ -11,6 +11,7 @@ def getSTACItemsFromCatalog(catalog):
         if elem["rel"] != "item":
             continue
         items.append(url + elem["href"])
+    return items
 
 
 # Input: url to STAC item
@@ -22,7 +23,10 @@ def getImageURLFromSTACItem(item):
 # Used for testing purposes
 def main():
     s = "https://cbers-stac-0-6.s3.amazonaws.com/CBERS4/MUX/065/094/catalog.json"
-    getSTACItemsFromCatalog(s)
+    items = getSTACItemsFromCatalog(s)
+    for i in items:
+        print(i)
+    print(getImageURLFromSTACItem(items[0]))
 
 
 if __name__ == "__main__":
