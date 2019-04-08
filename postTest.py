@@ -7,7 +7,7 @@ def postTest():
    
     url  = 'https://seng371worker.herokuapp.com/'
     data = {
-        'url':"WWW.prawn.com",
+        'url':"https://cbers-stac-0-6.s3.amazonaws.com/CBERS4/MUX/065/094/catalog.json",
         'intGit':"www.Ethan.com",
         'outGit':'www.Ross.com',
         'psw':r"""UoSH{&W-J2tA.KYV9c/#!6!MQ+-M/\~[<dhJNQ22>ny}$-Tpj"H%NQ'eq\'fo88[L]n1)5<H5~WO_/j#|t|@5!p[}pp:#Gn8%g.P"""
