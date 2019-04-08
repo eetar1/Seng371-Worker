@@ -5,10 +5,9 @@ import PIL.ImageOps
 from PIL import Image
 
 
-def process(name):
-    image = Image.open(str(name[0]))
+def process(img):
+    image = Image.open(img)
     out = PIL.ImageOps.invert(image)
-    out.save(os.getcwd() + "/ccfWorker/ccfWorker/fixed.jpg")
     return out
 
 

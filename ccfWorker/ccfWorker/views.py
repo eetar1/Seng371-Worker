@@ -8,6 +8,7 @@ from django.shortcuts import render, reverse
 from django.views.decorators.csrf import csrf_exempt
 import os
 from .invert import process
+from .dataFetch import getAllImages
 import io
 
 
@@ -21,7 +22,10 @@ def workpage_view(request):
     if request.method == "POST":
         if request.COOKIES["psw"] == os.environ.get('worker_password'):
             by = ""
-            out = process([os.getcwd() + "/ccfWorker/ccfWorker/testImage.jpg"])
+            img = getAllImages(request.COOKIES['url'])
+            imgArr = io.BytesIO()
+
+            out = process(imgArr)
             arr= io.BytesIO()
             out.save(arr,format=('JPEG'))
             out = arr.getvalue()
