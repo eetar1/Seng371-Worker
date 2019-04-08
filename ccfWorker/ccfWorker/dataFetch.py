@@ -1,5 +1,5 @@
 import requests
-
+import PIL
 # Input: url to STAC catalog
 # Output: the list of urls to STAC items in the catalog
 def getSTACItemsFromCatalog(catalog):
@@ -26,7 +26,10 @@ def main():
     items = getSTACItemsFromCatalog(s)
     for i in items:
         print(i)
-    print(getImageURLFromSTACItem(items[0]))
+    img = requests.get(getImageURLFromSTACItem(items[0]))
+    with open('img.jpg','wb+') as fp:
+        fp.write(img.content)
+
 
 
 if __name__ == "__main__":
