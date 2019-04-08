@@ -15,10 +15,6 @@ import io
 @csrf_exempt
 def workpage_view(request):
 
-    """
-    request.COOKIES['url'] get url of cookie
-    """
-
     if request.method == "POST":
         if request.COOKIES["psw"] == os.environ.get('worker_password'):
             by = ""

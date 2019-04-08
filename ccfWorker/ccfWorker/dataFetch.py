@@ -1,5 +1,7 @@
 import requests
 import io
+from PIL import Image 
+import os
 # Input: url to STAC catalog
 # Output: the list of urls to STAC items in the catalog
 def getSTACItemsFromCatalog(catalog):
@@ -31,17 +33,13 @@ def getAllImages(url):
 # Used for testing purposes
 def main():
     s = "https://cbers-stac-0-6.s3.amazonaws.com/CBERS4/MUX/065/094/catalog.json"
-    imt = getAllImages(s)
+    img = getAllImages(s)
+    with open("file.jpg","wb+") as fp:
+        fp.write(img)
+    img = Image.open("file.jpg")
+    img.show()
+    os.remove("file.jpg")
 
-    '''
-    s = "https://cbers-stac-0-6.s3.amazonaws.com/CBERS4/MUX/065/094/catalog.json"
-    items = getSTACItemsFromCatalog(s)
-    for i in items:
-        print(i)
-    img = requests.get(getImageURLFromSTACItem(items[0]))
-    with open('img.jpg','wb+') as fp:
-        fp.write(img.content)
-    '''
 
 
 
