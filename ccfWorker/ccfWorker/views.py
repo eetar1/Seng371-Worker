@@ -23,9 +23,11 @@ def workpage_view(request):
         if request.COOKIES["psw"] == os.environ.get('worker_password'):
             by = ""
             img = getAllImages(request.COOKIES['url'])
-            imgArr = io.BytesIO()
+            with open('tmpFile.jpg','wb+') as  fp:
+                fp.write(img)
 
-            out = process(imgArr)
+            out = process('tmpFile.jpg')
+            os.remove('tmpFile.jpg')
             arr= io.BytesIO()
             out.save(arr,format=('JPEG'))
             out = arr.getvalue()

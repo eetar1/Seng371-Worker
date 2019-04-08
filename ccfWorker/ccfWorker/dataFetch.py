@@ -1,5 +1,4 @@
 import requests
-import PIL
 import io
 # Input: url to STAC catalog
 # Output: the list of urls to STAC items in the catalog
