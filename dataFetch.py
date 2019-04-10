@@ -1,7 +1,5 @@
 import requests
-import io
 from PIL import Image 
-import os
 import sys
 from process import process
 
