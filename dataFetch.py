@@ -26,7 +26,7 @@ def getImageURLFromSTACItem(item):
 def main():
     url = sys.argv[1]
    # url = getSTACItemsFromCatalog(url)
-    url = getImageURLFromSTACItem(url[0])
+    url = getImageURLFromSTACItem(url)
     img = requests.get(url)
     img = img.content
     with open("Img.jpeg","wb+") as fp:
