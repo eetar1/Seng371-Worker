@@ -1,5 +1,7 @@
-import requests
 import sys
+
+import requests
+
 from process import process
 
 
@@ -7,6 +9,7 @@ from process import process
 # Output: the url to the preview image
 def get_image_URL_from_STAC_item(item):
     return requests.get(item).json()["assets"]["thumbnail"]["href"]
+
 
 # Used for testing purposes
 def main():
@@ -17,10 +20,10 @@ def main():
     img = img.content
 
     filename = sys.argv[2] + ".jpeg"
-    with open(filename,"wb+") as fp:
+    with open(filename, "wb+") as fp:
         fp.write(img)
     process(filename)
-        
+
+
 if __name__ == "__main__":
     main()
-
