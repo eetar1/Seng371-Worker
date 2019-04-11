@@ -2,11 +2,11 @@ import PIL.ImageOps
 from PIL import Image
 
 
-def process():
-    img = Image.open("Img.jpeg")
+def process(filename):
+    img = Image.open(filename)
     out = PIL.ImageOps.invert(img)
-    out.save("Img.jpg")
+    out.save(filename)
     '''
-    with open("Img.jpg","wb+") as fp:
+    with open(filename,"wb+") as fp:
         fp.write(img)
         '''
